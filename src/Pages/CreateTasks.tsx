@@ -182,8 +182,8 @@ function CreateTasks() {
                   </div>
                 ))
               ) : (
-                <div className="h-full flex justify-center items-center">
-                  <p>No pending tasks</p>
+                <div className="flex justify-center items-center">
+                  <p className="italic text-gray-400">No pending tasks</p>
                 </div>
               )}
             </div>
@@ -233,8 +233,8 @@ function CreateTasks() {
                   </div>
                 ))
               ) : (
-                <div className="h-full flex justify-center items-center">
-                  <p>No in progress tasks</p>
+                <div className="flex justify-center items-center">
+                  <p className="italic text-gray-400">No in progress tasks</p>
                 </div>
               )}
             </div>
@@ -284,8 +284,8 @@ function CreateTasks() {
                   </div>
                 ))
               ) : (
-                <div className="h-full flex justify-center items-center">
-                  <p>No completed tasks</p>
+                <div className="flex justify-center items-center">
+                  <p className="italic text-gray-400">No completed tasks</p>
                 </div>
               )}
             </div>

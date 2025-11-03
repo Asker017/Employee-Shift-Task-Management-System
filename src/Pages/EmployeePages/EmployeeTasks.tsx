@@ -70,39 +70,45 @@ function EmployeeTasks() {
                   <div
                     ref={provided.innerRef}
                     {...provided.droppableProps}
-                    className="flex flex-col gap-2 w-[350px] h-[550px] border border-gray-400 p-2 overflow-auto rounded-md"
+                    className="flex flex-col gap-2 w-[350px] h-[550px] p-2 overflow-auto rounded-md"
                   >
                     <p className="font-semibold text-lg">{status}</p>
 
-                    {tasks.map((task: any, index: number) => (
-                      <Draggable
-                        key={task._id}
-                        draggableId={task._id}
-                        index={index}
-                      >
-                        {(provided) => (
-                          <div
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                            ref={provided.innerRef}
-                            className="w-full shrink-0 rounded-sm shadow-lg border border-gray-500 flex flex-col gap-2 p-2 bg-white"
-                          >
-                            <p className="font-semibold">
-                              Title:{" "}
-                              <span className="text-gray-400">
-                                {task.title}
-                              </span>
-                            </p>
-                            <p className="font-semibold">
-                              Description:{" "}
-                              <span className="text-gray-400">
-                                {task.description || "-"}
-                              </span>
-                            </p>
-                          </div>
-                        )}
-                      </Draggable>
-                    ))}
+                    {tasks.length === 0 ? (
+                      <p className="text-gray-400 italic text-center mt-4">
+                        No {status} Tasks
+                      </p>
+                    ) : (
+                      tasks.map((task: any, index: number) => (
+                        <Draggable
+                          key={task._id}
+                          draggableId={task._id}
+                          index={index}
+                        >
+                          {(provided) => (
+                            <div
+                              {...provided.draggableProps}
+                              {...provided.dragHandleProps}
+                              ref={provided.innerRef}
+                              className="w-full shrink-0 rounded-sm shadow-[0_5px_5px_rgba(0,0,0,0.25)] flex flex-col gap-2 p-4 bg-white"
+                            >
+                              <p className="font-semibold">
+                                Title:{" "}
+                                <span className="text-gray-400">
+                                  {task.title}
+                                </span>
+                              </p>
+                              <p className="font-semibold">
+                                Description:{" "}
+                                <span className="text-gray-400">
+                                  {task.description || "-"}
+                                </span>
+                              </p>
+                            </div>
+                          )}
+                        </Draggable>
+                      ))
+                    )}
 
                     {provided.placeholder}
                   </div>
