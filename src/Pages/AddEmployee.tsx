@@ -22,6 +22,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Eye, EyeOff } from 'lucide-react';
 
 const passwordSchema = z
   .string()
@@ -61,6 +62,7 @@ function AddEmployee() {
     department: 0,
     designation: 0,
   })
+  const [showPassword, setShowPassword] = useState(false)
   const [edit, setEdit] = useState(false)
   const [editedEmployeeId, setEditedEmployeeId] = useState<string>("")
   const [page, setPage] = useState(1)
@@ -288,13 +290,29 @@ function AddEmployee() {
                 <>
                   <label>Password</label>
                   <div className="w-full">
-                    <input
-                      name="password"
-                      className="border border-gray-400 p-2 rounded-md w-full"
-                      placeholder="Enter password"
-                      value={formData.password}
-                      onChange={handleInputChange}
-                    />
+                    <div className="border border-gray-400 rounded-md w-full flex">
+                      <input
+                        name="password"
+                        type={!showPassword ? "password" : "text"}
+                        className="border-none p-2 w-[90%] focus:outline-none"
+                        placeholder="Enter password"
+                        value={formData.password}
+                        onChange={handleInputChange}
+                      />
+                      <div className="flex justify-center items-center">
+                        {showPassword ? (
+                          <Eye
+                            onClick={() => setShowPassword(!showPassword)}
+                            color="#9CA3AF"
+                          />
+                        ) : (
+                          <EyeOff
+                            onClick={() => setShowPassword(!showPassword)}
+                            color="#9CA3AF"
+                          />
+                        )}
+                      </div>
+                    </div>
                     {errors.password && (
                       <p className="my-1 text-red-400">{errors.password}</p>
                     )}

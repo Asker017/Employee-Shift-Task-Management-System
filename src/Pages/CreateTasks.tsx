@@ -139,12 +139,12 @@ function CreateTasks() {
       ) : (
         <div className="flex justify-center gap-8">
           <div className="flex flex-col gap-2">
-            <p className="font-semibold text-lg">Pending</p>
-            <div className="w-[350px] h-[550px] border border-gray-400 p-2 flex flex-col overflow-auto gap-4 no-scrollbar">
+            <p className="font-semibold text-lg px-2">Pending</p>
+            <div className="w-[350px] h-[550px] p-2 flex flex-col overflow-auto gap-4 no-scrollbar">
               {pendingTasks?.length > 0 ? (
                 pendingTasks.map((task: any, index: number) => (
                   <div
-                    className="w-full shrink-0 rounded-sm shadow-lg border border-gray-500 flex flex-col gap-2 p-2"
+                    className="w-full shrink-0 rounded-sm shadow-[0_5px_5px_rgba(0,0,0,0.25)] flex flex-col gap-2 p-4"
                     key={index}
                   >
                     <div className="w-full flex justify-between items-center">
@@ -167,7 +167,9 @@ function CreateTasks() {
                     </div>
                     <p className="font-semibold">
                       Description:{" "}
-                      <span className="text-gray-400">{task?.description || "-"}</span>
+                      <span className="text-gray-400">
+                        {task?.description || "-"}
+                      </span>
                     </p>
                     <div className="flex justify-between items-center">
                       <p className="font-semibold">
@@ -188,12 +190,12 @@ function CreateTasks() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <p className="font-semibold text-lg">In Progress</p>
-            <div className="w-[350px] h-[550px] border border-gray-400 p-2  flex flex-col overflow-auto gap-4 no-scrollbar">
+            <p className="font-semibold text-lg px-2">In Progress</p>
+            <div className="w-[350px] h-[550px] p-2  flex flex-col overflow-auto gap-4 no-scrollbar">
               {inProgressTasks?.length > 0 ? (
                 inProgressTasks.map((task: any, index: number) => (
                   <div
-                    className="h-[180px] w-full shrink-0 rounded-sm shadow-lg border border-gray-400 flex flex-col gap-2 p-2"
+                    className="w-full shrink-0 rounded-sm shadow-[0_5px_5px_rgba(0,0,0,0.25)] flex flex-col gap-2 p-4"
                     key={index}
                   >
                     <div className="w-full flex justify-between items-center">
@@ -216,7 +218,9 @@ function CreateTasks() {
                     </div>
                     <p className="font-semibold">
                       Description:{" "}
-                      <span className="text-gray-400">{task?.description || "-"}</span>
+                      <span className="text-gray-400">
+                        {task?.description || "-"}
+                      </span>
                     </p>
                     <div className="flex justify-between items-center">
                       <p className="font-semibold">
@@ -237,12 +241,12 @@ function CreateTasks() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <p className="font-semibold text-lg">Closed</p>
-            <div className="w-[350px] h-[550px] border border-gray-400 p-2  flex flex-col overflow-auto gap-4 no-scrollbar">
+            <p className="font-semibold text-lg py-2">Closed</p>
+            <div className="w-[350px] h-[550px] p-2  flex flex-col overflow-auto gap-4 no-scrollbar">
               {completedTasks?.length > 0 ? (
                 completedTasks.map((task: any, index: number) => (
                   <div
-                    className="w-full shrink-0 rounded-sm shadow-lg border border-gray-400 flex flex-col gap-2 p-2"
+                    className="w-full shrink-0 rounded-sm shadow-[0_5px_5px_rgba(0,0,0,0.25)] flex flex-col gap-2 p-4"
                     key={index}
                   >
                     <div className="w-full flex justify-between items-center">
@@ -265,7 +269,9 @@ function CreateTasks() {
                     </div>
                     <p className="font-semibold">
                       Description:{" "}
-                      <span className="text-gray-400">{task?.description || "-"}</span>
+                      <span className="text-gray-400">
+                        {task?.description || "-"}
+                      </span>
                     </p>
                     <div className="flex justify-between items-center">
                       <p className="font-semibold">

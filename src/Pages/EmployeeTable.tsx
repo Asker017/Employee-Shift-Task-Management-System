@@ -3,7 +3,13 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { Pencil, Trash } from "lucide-react";
+import { EllipsisVertical } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 function EmployeeTable({ data, page, setPage, totalPages, handleDelete, handleEdit, departments, designations }: any) {
 
@@ -44,18 +50,13 @@ function EmployeeTable({ data, page, setPage, totalPages, handleDelete, handleEd
       header: "Action",
       cell: (info: any) => (
         <div className="flex justify-center items-center gap-2">
-          <button
-            className="bg-red-700 p-2 rounded-sm"
-            onClick={() => handleDelete(info.row.original._id)}
-          >
-            <Trash size={14} color="white" />
-          </button>
-          <button
-            className="bg-green-600 p-2 rounded-sm"
-            onClick={() => handleEdit(info.row.original._id)}
-          >
-            <Pencil size={14} color="white" />
-          </button>
+          <DropdownMenu>
+            <DropdownMenuTrigger><EllipsisVertical size={20} /></DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem onClick={() => handleEdit(info.row.original._id)}>Edit</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => handleDelete(info.row.original._id)}>Delete</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       ),
     },
